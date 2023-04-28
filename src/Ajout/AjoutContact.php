@@ -31,7 +31,7 @@ if($Num==0)
     
 
     echo("Message envoyé");
-    header('Refresh: 2; URL=http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/index.php');
+    header('Refresh: 2; URL=http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Home.php');
 
 
 }else { echo ( "L'e-mail a déjà envoyé un message <br>"); 

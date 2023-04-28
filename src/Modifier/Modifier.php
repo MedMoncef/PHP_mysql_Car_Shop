@@ -56,7 +56,7 @@ $Num=mysqli_num_rows($resultat);
                 <li>Give us a call : +66666666 </li>
              </ul>
              <ul class="logreg">
-                <li><a href="../../index.php">Logout</a> </li>
+                <li><a href="../../Home.php">Logout</a> </li>
              </ul>
        </div>
        <!-- Navbar Up -->

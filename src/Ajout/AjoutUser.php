@@ -30,7 +30,7 @@ if($Num==0)
     
 
     echo("Compte créé");
-    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Login.php');
+    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/index.php');
 }else { echo ( "L'email existe déjà <br>"); 
-    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Login.php');}
+    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/index.php');}
 ?>

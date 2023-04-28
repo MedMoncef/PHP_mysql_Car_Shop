@@ -24,7 +24,7 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="../index.php">Logout</a></li>
+				<li><a href="../Home.php">Logout</a></li>
 			</ul>
 	</div>
 	<!-- Navbar Up -->
@@ -80,12 +80,12 @@ if($Nm==0)
 
  {
     echo("<center><h1>Compte n'existe pas</h1></center><br>");
-    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Login.php');
+    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/index.php');
 
 }elseif (($Nm==1) and ($psw==0)) {
 
     echo ( "<center><h1>Password Incorrect</h1></center><br>");
-	header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Login.php');
+	header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/index.php');
 
 }else{
 

@@ -22,9 +22,9 @@
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<ul class="logreg">
-                <li class="active"><a href="index.php">HOME</a></li>
+                <li class="active"><a href="Home.php">HOME</a></li>
 				<li><a href="contact.php"><span class="register">Contact</span></a></li>
-				<li><a href="Login.php"><span class="register">Login</span></a> </li>
+				<li><a href="index.php"><span class="register">Login</span></a> </li>
 				<li><a href="Register.php"><span class="register">Register</span></a></li>
 			</ul>
             <ul class="givusacall">
@@ -44,7 +44,7 @@
       <input type="password" placeholder="Password" id="Password" name="Password">
 	  <input type="password" placeholder="Repeat Password" id="PasswordExtra" name="PasswordExtra" onchange="checker();">
       <button>create</button>
-      <p class="message">Already registered? <a href="Login.php">Sign In</a> or go <a href="index.php">Home!</a></p>
+      <p class="message">Already registered? <a href="index.php">Sign In</a> or go <a href="Home.php">Home!</a></p>
     </form>
   </div>
 </div>    

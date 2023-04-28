@@ -24,7 +24,7 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="../../index.php">Logout</a> </li>
+				<li><a href="../../Home.php">Logout</a> </li>
 			</ul>
 	</div>
 	<!-- Navbar Up -->
@@ -55,6 +55,12 @@
 <!--_______________________________________ aff voiture __________________________________ -->
 
 <?php
+try{
+    $pdo = new PDO("mysql:host=localhost;dbname=Garage", "root", "");
+    $pdo->setAttribute (PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    }catch(PDOException $e){ echo $e->getMessage(); die();
+}
+
 $serveur="localhost";
 $utilisateur="root";
 $mot_passe="";
@@ -63,9 +69,16 @@ $base_donnee="Garage";
 $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
 mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
 
+$res = $pdo->query("select * from voitures;");
+$data = $res->fetchAll();
+
 $requete="select * from voitures;";
 $resultat=mysqli_query($c,$requete);
 $resultat2=mysqli_query($c,$requete);
+
+if ($pdo->errorCode()==0){
+	echo ("La requete a ete executee sans erreur");
+}
 
 $coun = 1;
 while ($i=mysqli_fetch_array($resultat))

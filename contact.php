@@ -27,7 +27,7 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="Login.php">Login </a> </li>
+				<li><a href="index.php">Login </a> </li>
 				<li><a href="Register.php"><span class="register">Register</span></a></li>
 			</ul>
 	</div>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="upmenu">
 			<ul class="nav navbar-nav" id="navbarontop">
-				<li class="active"><a href="index.php">HOME</a> </li>
+				<li class="active"><a href="Home.php">HOME</a> </li>
 				<li>
 					<a href="contact.php">CONTACT</a>
 				</li>
