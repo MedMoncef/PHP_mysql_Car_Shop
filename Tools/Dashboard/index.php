@@ -70,7 +70,7 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
+                                                <h2><?php $_SESSION['count'] ?></h2>
                                                 <span>members online</span>
                                             </div>
                                         </div>

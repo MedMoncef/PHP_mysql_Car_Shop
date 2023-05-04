@@ -17,6 +17,15 @@ die();
 
 // Retrieve user information from the database
 $sql = "SELECT UserId, Email, password, Name, Type FROM user WHERE Email = '$Email'";
+
+$sql1 = "SELECT COUNT(*) FROM user";
+$result1 = $pdo->query($sql1);
+$count = $result1->fetchColumn();
+?>
+<script>
+console.log($count);
+</script>
+<?php
 $result = $pdo->query($sql);
 
 if ($result && $result->rowCount() == 1) {
@@ -29,6 +38,7 @@ $_SESSION['user_id'] = $row['UserId'];
 $_SESSION['username'] = $row['Name'];
 $_SESSION['Email'] = $row['Email'];
 $_SESSION['Type'] = $row['Type'];
+$_SESSION['count'] = $count;
 
 
 if ($_SESSION['Type'] == 'User') {

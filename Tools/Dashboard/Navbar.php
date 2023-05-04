@@ -1,25 +1,5 @@
 <?php session_start();
-// Connect to the database
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=garage", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo $e->getMessage();
-    die();
-}
 
-// Count the number of users
-$sql = "SELECT COUNT(*) FROM user";
-$result = $pdo->query($sql);
-
-if ($result) {
-    $count = $result->fetchColumn();
-    echo "There are " . $count . " users in the database.";
-} else {
-    echo "Error: Could not count users.";
-}
-
-// Close the database connection
 $pdo = null;
 ?>
 <header class="header-mobile d-block d-lg-none">
