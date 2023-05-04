@@ -22,7 +22,7 @@ $pdo = null;
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a href="index.php">
-                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            <i class="fas fa-tachometer-alt"></i>TOP</a>
                         </li>
                         </li>
                         <li>
@@ -31,19 +31,23 @@ $pdo = null;
                         </li>
                         <li>
                             <a href="table.php">
-                                <i class="fas fa-table"></i>Tables</a>
+                                <i class="fas fa-table"></i>Earnings By Items</a>
                         </li>
                         <li>
                             <a href="form.php">
-                                <i class="far fa-check-square"></i>Forms</a>
+                                <i class="far fa-check-square"></i>Top Countries</a>
                         </li>
                         <li>
                             <a href="calendar.php">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                                <i class="fas fa-calendar-alt"></i>Tasks</a>
                         </li>
                         <li>
                             <a href="map.php">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                                <i class="fas fa-map-marker-alt"></i>Message</a>
+                        </li>
+                        <li>
+                            <a href="#tasks_msg">
+                                <i class="fas fa-gears"></i>CRUD</a>
                         </li>
                     </ul>
                 </div>
@@ -58,29 +62,34 @@ $pdo = null;
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="has-sub">
-                            <a href="index.php">
-                            <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <li class="has-sub">
+                            <a href="#INFO">
+                            <i class="fas fa-tachometer-alt"></i>INFO</a>
+                        </li>
                         </li>
                         <li>
-                            <a href="chart.php">
+                            <a href="#Charts">
                                 <i class="fas fa-chart-bar"></i>Charts</a>
                         </li>
                         <li>
-                            <a href="table.php">
-                                <i class="fas fa-table"></i>Tables</a>
+                            <a href="#earn_countries">
+                                <i class="fas fa-table"></i>Earnings By Items</a>
                         </li>
                         <li>
-                            <a href="form.php">
-                                <i class="far fa-check-square"></i>Forms</a>
+                            <a href="#earn_countries">
+                                <i class="far fa-check-square"></i>Top Countries</a>
                         </li>
                         <li>
-                            <a href="calendar.php">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
+                            <a href="#tasks_msg">
+                                <i class="fas fa-calendar-alt"></i>Tasks</a>
                         </li>
                         <li>
-                            <a href="map.php">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                            <a href="#tasks_msg">
+                                <i class="fas fa-map-marker-alt"></i>Message</a>
+                        </li>
+                        <li>
+                            <a href="#tasks_msg">
+                                <i class="fas fa-gears"></i>CRUD</a>
                         </li>
                     </ul>
                 </nav>

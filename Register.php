@@ -13,26 +13,6 @@
 </head>
 <body>
 <!-- Header -->
-<div class="allcontain">
-	<div class="header">
-			<ul class="socialicon">
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-			</ul>
-			<ul class="logreg">
-                <li class="active"><a href="Home.php">HOME</a></li>
-				<li><a href="contact.php"><span class="register">Contact</span></a></li>
-				<li><a href="index.php"><span class="register">Login</span></a> </li>
-				<li><a href="Register.php"><span class="register">Register</span></a></li>
-			</ul>
-            <ul class="givusacall">
-				<li>Give us a call : +66666666 </li>
-			</ul>
-	</div>
-	<!-- Navbar Up -->
-</div>
 
 <!-- Register -->
 <div class="login-page">

@@ -92,8 +92,7 @@ if($Nm==0)
     ?>
     <br><br><br><br><br>
     <center>
-    <h1>Login Successful</h1>
-    <h1>Welcome <?php echo $Name ?></h1>
+    <h1>Display all</h1>
 	<br>
     <table border=2>
     <tr>

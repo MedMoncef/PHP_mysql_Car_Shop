@@ -217,7 +217,10 @@ include 'Tools/Navbar.php';
 								<h4 class="name"><?php echo $i["Voitures"] ?></h4>
 								<p><?php echo $i["Description"] ?></p>
 	 							<h4 class="price"><?php echo $i["Prix"] ?> $</h4>
-	 							<button>READ MORE</button><br>
+								 <form method="POST" action="contact.php">
+	 								<button type="submit">READ MORE</button><br>
+								 </form>
+								 <br>
 	 							<div class="wishtxt">
 		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
 		 							<p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
@@ -243,10 +246,12 @@ include 'Tools/Navbar.php';
 				receive updates on new arrivals, special offers <br>
 				and other discount information.</p>
 		</div>
-		<div class="rightside">
-			<img class="newsimage" src="image/newsletter.jpg" alt="newsletter">
-			<input type="text" class="form-control" id="subemail" placeholder="EMAIL">
-			<button>SUBSCRIBE</button>
+		<div>
+			<form action="Tools/subscribe.php" method="post" class="rightside">
+				<img class="newsimage" src="image/newsletter.jpg" alt="newsletter">
+				<input type="email" class="form-control" id="subemail" name="Email" placeholder="EMAIL" required>
+				<button type="submit">SUBSCRIBE</button>
+			</form>
 		</div>
 	</div>
 	<!-- ______________________________________________________Bottom Menu ______________________________-->

@@ -14,10 +14,13 @@
                                 if (!isset($_SESSION['username'])){
                                 ?>
                                 <li class="nav-item"><a class="nav-link" href="index.php">Login</a></li>
+								<li class="nav-item">ㅤ/ㅤ</li>
+								<li class="nav-item"><a class="nav-link" href="Register.php">Register</a></li>
                                 <?php
                                 } else {
                                 ?>
-                                <li><a href="profile.php"><?php echo ($_SESSION['username']); ?></a></li>
+                                <li><a href="Tools/profile.php"><?php echo ($_SESSION['username']); ?></a></li>
+								<li class="nav-item">ㅤ/ㅤ</li>
                                 <li class="nav-item"><a class="nav-link" href="Tools/logout.php">Logout</a></li>
                                 <?php
                                 }

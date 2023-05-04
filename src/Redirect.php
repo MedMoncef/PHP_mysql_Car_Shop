@@ -21,11 +21,17 @@ $sql = "SELECT UserId, Email, password, Name, Type FROM user WHERE Email = '$Ema
 $sql1 = "SELECT COUNT(*) FROM user";
 $result1 = $pdo->query($sql1);
 $count = $result1->fetchColumn();
-?>
-<script>
-console.log($count);
-</script>
-<?php
+
+$sql2 = "SELECT COUNT(*) FROM contact";
+$result2 = $pdo->query($sql2);
+$count_c = $result2->fetchColumn();
+
+$sql3 = "SELECT SUM(Prix) FROM voitures";
+$result3 = $pdo->query($sql3);
+$sum = $result3->fetchColumn();
+
+
+
 $result = $pdo->query($sql);
 
 if ($result && $result->rowCount() == 1) {
@@ -39,6 +45,9 @@ $_SESSION['username'] = $row['Name'];
 $_SESSION['Email'] = $row['Email'];
 $_SESSION['Type'] = $row['Type'];
 $_SESSION['count'] = $count;
+$_SESSION['count_c'] = $count_c;
+$_SESSION['sum'] = $sum;
+
 
 
 if ($_SESSION['Type'] == 'User') {
