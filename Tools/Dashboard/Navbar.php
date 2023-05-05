@@ -45,10 +45,26 @@ $pdo = null;
                             <a href="map.php">
                                 <i class="fas fa-map-marker-alt"></i>Message</a>
                         </li>
-                        <li>
-                            <a href="#tasks_msg">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-gears"></i>CRUD</a>
-                        </li>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Voiture</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Sliders</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Newsletters</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Users</a>
+                                </li>
+                            </ul>
                     </ul>
                 </div>
             </nav>
@@ -87,10 +103,26 @@ $pdo = null;
                             <a href="#tasks_msg">
                                 <i class="fas fa-map-marker-alt"></i>Message</a>
                         </li>
-                        <li>
-                            <a href="#tasks_msg">
+                                <li class="has-sub">
+                            <a class="js-arrow" href="#">
                                 <i class="fas fa-gears"></i>CRUD</a>
-                        </li>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="index.html">Voiture</a>
+                                </li>
+                                <li>
+                                    <a href="index2.html">Sliders</a>
+                                </li>
+                                <li>
+                                    <a href="index3.html">Newsletters</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Contact</a>
+                                </li>
+                                <li>
+                                    <a href="index4.html">Users</a>
+                                </li>
+                            </ul>
                     </ul>
                 </nav>
             </div>
