@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 
 $pdo = null;
 ?>
@@ -49,20 +50,20 @@ $pdo = null;
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-gears"></i>CRUD</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Voiture</a>
+                            <li>
+                                    <a href="DashVoiture.php">Voiture</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Sliders</a>
+                                    <a href="DashSliders">Sliders</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Newsletters</a>
+                                    <a href="DashNewsletter">Newsletters</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Contact</a>
+                                    <a href="DashContact">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Users</a>
+                                    <a href="DashUsers">Users</a>
                                 </li>
                             </ul>
                     </ul>
@@ -108,19 +109,19 @@ $pdo = null;
                                 <i class="fas fa-gears"></i>CRUD</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Voiture</a>
+                                    <a href="DashVoiture.php">Voiture</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Sliders</a>
+                                    <a href="DashSliders">Sliders</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Newsletters</a>
+                                    <a href="DashNewsletter">Newsletters</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Contact</a>
+                                    <a href="DashContact">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">Users</a>
+                                    <a href="DashUsers">Users</a>
                                 </li>
                             </ul>
                     </ul>
