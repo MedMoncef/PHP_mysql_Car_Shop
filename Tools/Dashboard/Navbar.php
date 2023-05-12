@@ -57,13 +57,13 @@ $pdo = null;
                                     <a href="DashSliders">Sliders</a>
                                 </li>
                                 <li>
-                                    <a href="DashNewsletter">Newsletters</a>
+                                    <a href="DashNewsletter.php">Newsletters</a>
                                 </li>
                                 <li>
-                                    <a href="DashContact">Contact</a>
+                                    <a href="DashContact.php">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="DashUsers">Users</a>
+                                    <a href="DashUsers.php">Users</a>
                                 </li>
                             </ul>
                     </ul>
@@ -80,7 +80,7 @@ $pdo = null;
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                     <li class="has-sub">
-                            <a href="#INFO">
+                            <a href="index.php">
                             <i class="fas fa-tachometer-alt"></i>INFO</a>
                         </li>
                         </li>
@@ -115,13 +115,13 @@ $pdo = null;
                                     <a href="DashSliders.php">Sliders</a>
                                 </li>
                                 <li>
-                                    <a href="DashNewsletter">Newsletters</a>
+                                    <a href="DashNewsletter.php">Newsletters</a>
                                 </li>
                                 <li>
-                                    <a href="DashContact">Contact</a>
+                                    <a href="DashContact.php">Contact</a>
                                 </li>
                                 <li>
-                                    <a href="DashUsers">Users</a>
+                                    <a href="DashUsers.php">Users</a>
                                 </li>
                             </ul>
                     </ul>

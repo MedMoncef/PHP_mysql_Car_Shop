@@ -1,7 +1,7 @@
 <?php
     include 'Connect.php';
     $sql = "SELECT IdV, Voitures, Prix, Description FROM voitures";
-    $result = mysqli_query($c, $sql) or die(mysqli_error($c));
+    $result = mysqli_query($c, $sql) or die(mysqli_error($c));    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +13,9 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-
+    <link rel="stylesheet" href="popup/style.css">
     <!-- Title Page-->
-    <title>Tables</title>
+    <title>Voiture</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -43,6 +43,8 @@
 
 <body class="animsition">
     <div class="page-wrapper">
+        <?php include 'popup/popupAV/popupAV.php'; ?>
+        <?php include 'popup/popupAV/popupmodV.php'; ?>
 
 
         <!-- MENU SIDEBAR-->
@@ -65,14 +67,8 @@
                                 <h3 class="title-5 m-b-35">Table Voitures</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
                                             <i class="fa-solid fa-plus"></i>Add item
-                                        </button>
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="fa-solid fa-trash"></i>Delete item
-                                        </button>
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="fa-solid fa-screwdriver-wrench"></i>Modify item
                                         </button>
                                     </div>
                                 </div>
@@ -97,15 +93,17 @@
                                                 <td>$<?php echo $row['Prix']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ajout">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
                                                             <i class="zmdi zmdi-edit"></i>
+                                                            <?php $_SESSION['idg'] = $row['IdV']; ?>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
+
+                                                        <form method="POST" action="popup/del/del.php" style="display: inline;">
+                                                            <input type="hidden" name="id" value="<?php echo $row['IdV']; ?>">
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -147,6 +145,6 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-
+    <script src="popup/script.js"></script>                                        
 </body>
 </html>
