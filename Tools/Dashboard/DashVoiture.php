@@ -13,7 +13,6 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-    <link rel="stylesheet" href="popup/style.css">
     <!-- Title Page-->
     <title>Voiture</title>
 
@@ -38,6 +37,7 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="popup/style.css">
 
 </head>
 

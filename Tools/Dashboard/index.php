@@ -51,6 +51,7 @@ $result1 = mysqli_query($c, $sql1) or die(mysqli_error($c));?>
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="popup/style.css">
 
 </head>
 
@@ -426,6 +427,7 @@ $result1 = mysqli_query($c, $sql1) or die(mysqli_error($c));?>
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script src="popup/script.js"></script>                                        
 
 </body>
 

@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Tables</title>
+    <title>Sliders</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -38,12 +38,15 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="popup/style.css">
 
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
 
+        <?php include 'popup/popupSL/popupSL.php'; ?>
+        <?php include 'popup/popupSL/popupmodSL.php'; ?>
 
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
@@ -65,14 +68,8 @@
                                 <h3 class="title-5 m-b-35">Table Slides</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
                                             <i class="fa-solid fa-plus"></i>Add item
-                                        </button>
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="fa-solid fa-trash"></i>Delete item
-                                        </button>
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="fa-solid fa-screwdriver-wrench"></i>Modify item
                                         </button>
                                     </div>
                                 </div>
@@ -95,15 +92,18 @@
                                                 <td class="desc"><?php echo $row['DescVS']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ajout">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
                                                             <i class="zmdi zmdi-edit"></i>
+                                                            <?php $_SESSION['IdVslide'] = $row['IdVslide']; ?>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
+
+                                                        <form method="POST" action="popup/del/delSL.php" style="display: inline;">
+                                                            <input type="hidden" name="IdVslide" value="<?php echo $row['IdVslide']; ?>">
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
+                                                        </form>
+
                                                     </div>
                                                 </td>
                                             </tr>
@@ -145,6 +145,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+    <script src="popup/script.js"></script>                                        
 
 </body>
 </html>
