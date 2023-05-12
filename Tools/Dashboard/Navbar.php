@@ -112,7 +112,7 @@ $pdo = null;
                                     <a href="DashVoiture.php">Voiture</a>
                                 </li>
                                 <li>
-                                    <a href="DashSliders">Sliders</a>
+                                    <a href="DashSliders.php">Sliders</a>
                                 </li>
                                 <li>
                                     <a href="DashNewsletter">Newsletters</a>
