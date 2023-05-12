@@ -45,11 +45,13 @@
 <body class="animsition">
     <div class="page-wrapper">
 
-
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
         <!-- END MENU SIDEBAR-->
-
+        <?php 
+        include 'popup/popupCon/popupCon.php';
+        include 'popup/popupCon/popupmodCon.php'; 
+        ?>
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -63,17 +65,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Table Slides</h3>
+                                <h3 class="title-5 m-b-35">Table Contact</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
                                             <i class="fa-solid fa-plus"></i>Add item
-                                        </button>
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="fa-solid fa-trash"></i>Delete item
-                                        </button>
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                            <i class="fa-solid fa-screwdriver-wrench"></i>Modify item
                                         </button>
                                     </div>
                                 </div>
@@ -81,8 +77,11 @@
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                                <th>NL_ID</th>
+                                                <th>IdContact</th>
+                                                <th>Name</th>
                                                 <th>Email</th>
+                                                <th>Subject</th>
+                                                <th>Message</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -97,15 +96,17 @@
                                                 <td><?php echo $row['Message']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Ajout">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
                                                             <i class="zmdi zmdi-edit"></i>
+                                                            <?php $_SESSION['IdContact'] = $row['IdContact']; ?>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
+
+                                                        <form method="POST" action="popup/del/delCon.php" style="display: inline;">
+                                                            <input type="hidden" name="IdContact" value="<?php echo $row['IdContact']; ?>">
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>

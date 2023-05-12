@@ -48,6 +48,7 @@ $result1 = mysqli_query($c, $sql1) or die(mysqli_error($c));?>
     <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">

@@ -106,7 +106,7 @@ $pdo = null;
                         </li>
                                 <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-gears"></i>CRUD</a>
+                                <i class="fas fa-gears"></i>CRUDㅤㅤ<i class="fa-solid fa-chevron-down"></i></a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="DashVoiture.php">Voiture</a>
