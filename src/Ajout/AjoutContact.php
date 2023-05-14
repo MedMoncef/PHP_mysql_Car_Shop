@@ -1,11 +1,17 @@
 <?php
+session_start();
+function displayAlert($message, $type = "info") {
+    ?>
+    <script>
+        alert("<?php echo $message; ?>");
+    </script>
+    <?php
+}
 //ou extract($_POST);
 $Name=$_POST["Name"];
-$Email=$_POST["Email"];
+$Email=$_SESSION['Email'];
 $Subject=$_POST["Subject"];
 $Message=$_POST["Message"];
-
-echo("Name : ". $Name."<br>");
 
 $serveur="localhost";
 $utilisateur="root";
@@ -14,8 +20,6 @@ $base_donnee="Garage";
 
 $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
 mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-
-echo("connexion au serveur et base de donnees reussite <br>");
 
 $requete="select * from contact where Email='$Email';" ;
 
@@ -29,11 +33,12 @@ if($Num==0)
 
     $resultat=mysqli_query ($c, $requete) or die ("erreur d'insertion<br>". mysqli_error($c));
     
+    displayAlert("Message envoyé", "error");
+    header('Refresh: 0; http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Home.php');
 
-    echo("Message envoyé");
-    header('Refresh: 2; URL=http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Home.php');
 
-
-}else { echo ( "L'e-mail a déjà envoyé un message <br>"); 
-    header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/contact.php');}
+}else {
+    displayAlert("L'e-mail a déjà envoyé un message", "error");
+    header('Refresh: 0; http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/contect.php');
+}
 ?>

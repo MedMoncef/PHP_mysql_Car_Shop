@@ -13,27 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 </head>
 <body>
-
-<?php
-$serveur="localhost";
-$utilisateur="root";
-$mot_passe="";
-$base_donnee="Garage";
-
-$c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
-mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-
-session_start();
-
-$requete="select * from voitures;";
-$requete1="select * from slidev;";
-$requete2="select * from vpub;";
-
-$resultat=mysqli_query($c,$requete);
-$resultat1=mysqli_query($c,$requete1);
-$resultat2=mysqli_query($c,$requete2);
-?>
-
 <!-- Header -->
 <?php
 include 'Tools/Navbar.php';

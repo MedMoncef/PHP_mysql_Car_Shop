@@ -26,7 +26,7 @@ if($Num==0){
     session_start();
     $_SESSION['success_message'] = "You've successfully subscribed to our newsletter!";
     
-    header('Refresh: 0; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Home.php');
+    header('Refresh: 0; http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Home.php');
 }else { 
     echo ( "You're already subscribed to our Newslatter"); 
 }

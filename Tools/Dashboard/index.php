@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Connect to the database
 $serveur="localhost";
 $utilisateur="root";
@@ -14,7 +15,18 @@ $result = mysqli_query($c, $sql) or die(mysqli_error($c));
 
 
 $sql1 = "SELECT Name, Message, IdContact FROM contact";
-$result1 = mysqli_query($c, $sql1) or die(mysqli_error($c));?>
+$result1 = mysqli_query($c, $sql1) or die(mysqli_error($c));
+
+$sql3 = "SELECT ImageName
+FROM user JOIN contact ON user.email = contact.email;";
+$result3 = mysqli_query($c, $sql3) or die(mysqli_error($c));
+$row1 = mysqli_fetch_assoc($result3);
+$C_image = $row['ImageName'];
+
+$sql2 = "SELECT * FROM user";
+$result2 = mysqli_query($c, $sql2) or die(mysqli_error($c));
+$row = mysqli_fetch_assoc($result2);
+$Image = $row['ImageName'];
 ?>
 
 <!DOCTYPE html>
@@ -322,7 +334,7 @@ $result1 = mysqli_query($c, $sql1) or die(mysqli_error($c));?>
                                                         <div class="au-message__item-text">
                                                             <div class="avatar-wrap">
                                                                 <div class="avatar">
-                                                                    <img src="images/icon/border.png" alt="John Smith">
+                                                                    <img src="../../src/images/<?php echo ($C_image); ?>" alt="John Smith">
                                                                 </div>
                                                             </div>
                                                             <div class="text">

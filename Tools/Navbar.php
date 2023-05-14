@@ -1,3 +1,28 @@
+<?php
+$serveur="localhost";
+$utilisateur="root";
+$mot_passe="";
+$base_donnee="Garage";
+
+$c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
+mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
+
+session_start();
+
+$requete="select * from voitures;";
+$requete1="select * from slidev;";
+$requete2="select * from vpub;";
+
+$resultat=mysqli_query($c,$requete);
+$resultat1=mysqli_query($c,$requete1);
+$resultat2=mysqli_query($c,$requete2);
+
+$sql2 = "SELECT * FROM user";
+$result2 = mysqli_query($c, $sql2) or die(mysqli_error($c));
+$row = mysqli_fetch_assoc($result2);
+$Image = $row['ImageName'];
+?>
+
 <div class="allcontain">
 	<div class="header">
 			<ul class="socialicon">

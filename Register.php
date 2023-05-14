@@ -18,13 +18,14 @@
 <div class="login-page">
   <div class="form">
   <h1 class="title">Register</h1>
-    <form method="POST" action="src/Ajout/AjoutUser.php">
-      <input type="text" placeholder="Username" id="Name" name="Name">
-      <input type="text" placeholder="Email" id="Email" name="Email">
-      <input type="password" placeholder="Password" id="Password" name="Password">
-	  <input type="password" placeholder="Repeat Password" id="PasswordExtra" name="PasswordExtra" onchange="checker();">
-      <button>create</button>
-      <p class="message">Already registered? <a href="index.php">Sign In</a> or go <a href="Home.php">Home!</a></p>
+    <form method="POST" action="src/Ajout/AjoutUser.php" enctype="multipart/form-data">
+        <input type="text" placeholder="Username" id="Name" name="Name">
+        <input type="text" placeholder="Email" id="Email" name="Email">
+        <input type="password" placeholder="Password" id="Password" name="Password">
+        <input type="password" placeholder="Repeat Password" id="PasswordExtra" name="PasswordExtra" onchange="checker();">
+        <input type="file" name="profile_image" id="profile_image">
+        <button>Create</button>
+        <p class="message">Already registered? <a href="index.php">Sign In</a> or go <a href="Home.php">Home!</a></p>
     </form>
   </div>
 </div>    
@@ -42,7 +43,7 @@ var cmdp = document.getElementById("PasswordExtra").value ;
 
   if(nmdp != cmdp){
 
-	alert('Erreur');
+	alert('Confirm password');
   }
 }
 </script>
