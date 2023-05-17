@@ -353,7 +353,7 @@ float: right;
 	src:url(../source/fonts/OpenSans-Regular.ttf) format("truetype");
 }
 .carousel-caption>h2>p{
-font-family: :'OpenSans Regular';
+font-family: 'OpenSans Regular';
 font-size: 15.88pt;
 }
 .carousel-caption {
@@ -428,7 +428,7 @@ font-size: 10pt;
 .navbar-default .textcostume {
   border-color: #fff;
 }
-.navbar-default .textcostume . {
+.navbar-default .textcostume {
   border-color: #fff;
 }
 .navbarborder>li{
