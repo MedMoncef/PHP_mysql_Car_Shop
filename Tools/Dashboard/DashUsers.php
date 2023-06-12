@@ -64,7 +64,7 @@
                                     <div class="table-data__tool-right">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                                             <i class="fa-solid fa-plus"></i>
-                                            <a href="popup/popupUs/popupUs.php">Add item</a>
+                                            <a href="popup/popupUs/addUser.php">Add a New User</a>
                                         </button>
                                     </div>
                                 </div>
@@ -92,9 +92,9 @@
                                                 <td>
                                                     <div class="table-data-feature">
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <a href="popup/popupUs/editUser.php?UserId=<?php echo $row['UserId']; ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                    <i class="zmdi zmdi-edit"></i>
-                                                                </a>
+                                                        <a href="popup/popupUs/editUser.php?UserId=<?php echo $row['UserId']; ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </a>
                                                     </button>
 
                                                     <form method="POST" action="popup/del/delUs.php" onsubmit="return confirmDelete()" style="display: inline;">

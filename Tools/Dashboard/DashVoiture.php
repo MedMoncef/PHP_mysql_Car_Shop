@@ -43,9 +43,6 @@
 
 <body class="animsition">
     <div class="page-wrapper">
-        <?php include 'popup/popupAV/popupAV.php'; ?>
-        <?php include 'popup/popupAV/popupmodV.php'; ?>
-
 
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
@@ -68,7 +65,8 @@
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
-                                            <i class="fa-solid fa-plus"></i>Add item
+                                        <i class="fa-solid fa-plus"></i>
+                                            <a href="popup/popupAV/addVoiture.php">Add a new Car</a>
                                         </button>
                                     </div>
                                 </div>
@@ -93,17 +91,19 @@
                                                 <td>$<?php echo $row['Prix']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                        <a href="popup/popupAV/editVoiture.php?IdV=<?php echo $row['IdV']; ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
-                                                            <?php $_SESSION['idg'] = $row['IdV']; ?>
-                                                        </button>
+                                                        </a>
+                                                    </button>
 
                                                     <form method="POST" action="popup/del/del.php" onsubmit="return confirmDelete()" style="display: inline;">
-                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
+                                                        <input type="hidden" name="IdV" value="<?php echo $row['IdV']; ?>">
                                                         <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
                                                     </form>
+                                                    
                                                     </div>
                                                 </td>
                                             </tr>
@@ -124,7 +124,7 @@
 
     <script>
         function confirmDelete() {
-            return confirm('Are you sure you want to delete this user?');
+            return confirm('Are you sure you want to delete this Car?');
         }
     </script>
 

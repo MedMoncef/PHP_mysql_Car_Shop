@@ -45,9 +45,6 @@
 <body class="animsition">
     <div class="page-wrapper">
 
-        <?php include 'popup/popupSL/popupSL.php'; ?>
-        <?php include 'popup/popupSL/editUser.php'; ?>
-
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
         <!-- END MENU SIDEBAR-->
@@ -69,7 +66,8 @@
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
-                                            <i class="fa-solid fa-plus"></i>Add item
+                                        <i class="fa-solid fa-plus"></i>
+                                            <a href="popup/popupSL/addSlide.php">Add a new Slide</a>
                                         </button>
                                     </div>
                                 </div>
@@ -92,23 +90,24 @@
                                                 <td class="desc"><?php echo $row['DescVS']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                            <?php $_SESSION['IdVslide'] = $row['IdVslide']; ?>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <a href="popup/popupSL/editSlide.php?IdVslide=<?php echo $row['IdVslide']; ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                <i class="zmdi zmdi-edit"></i>
+                                                            </a>
                                                         </button>
 
-                                                    <form method="POST" action="popup/del/delSL.php" onsubmit="return confirmDelete()" style="display: inline;">
-                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
-                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                    </form>
-
+                                                        <form method="POST" action="popup/del/delSL.php" onsubmit="return confirmDelete()" style="display: inline;">
+                                                            <input type="hidden" name="IdVslide" value="<?php echo $row['IdVslide']; ?>">
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <tr class="spacer"></tr>
                                         <?php } ?>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -124,7 +123,7 @@
 
     <script>
         function confirmDelete() {
-            return confirm('Are you sure you want to delete this user?');
+            return confirm('Are you sure you want to delete this Slide?');
         }
     </script>
 
