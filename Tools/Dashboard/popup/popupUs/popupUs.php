@@ -1,66 +1,93 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Extract the form data
-    $Name = $_POST["Name"];
-    $Email = $_POST["Email"];
-    $Password = $_POST["Password"];
-    $Type = $_POST["Type"];
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Add User</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
 
-    $requete = "SELECT * FROM user WHERE Email='$Email';";
-    $resultat = mysqli_query($c, $requete) or die("impossible d'executer la requete: " . mysqli_error($c));
-    $Num = mysqli_num_rows($resultat);
+<body>
 
-    if ($Num == 0) {
-        $requete = "INSERT INTO user(Name, Email, Password, Type) VALUES ('$Name','$Email','$Password','$Type');";
-        $resultat = mysqli_query($c, $requete) or die("erreur d'insertion: " . mysqli_error($c));
+    <?php
+    include '../../Connect.php';
 
-        $requete1 = "SELECT * FROM user;";
-        $resultat3 = mysqli_query($c, $requete1);
-        $coun = 1;
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $name = $_POST["Name"];
+        $email = $_POST["Email"];
+        $password = $_POST["Password"];
+        $type = $_POST["Type"];
 
-        while ($i = mysqli_fetch_array($resultat3)) {
-            $requete1 = "UPDATE user SET UserId='$coun' WHERE UserId='$i[UserId]';";
-            $resultat1 = mysqli_query($c, $requete1) or die("<br>erreur d'update: " . mysqli_error($c));
-            $coun++;
+        $query = "SELECT * FROM user WHERE Email = ?";
+        $stmt = mysqli_prepare($c, $query);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $num = mysqli_num_rows($result);
+
+        if ($num == 0) {
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+            $insert_query = "INSERT INTO user(Name, Email, Password, Type) VALUES (?, ?, ?, ?);";
+            $insert_stmt = mysqli_prepare($c, $insert_query);
+            mysqli_stmt_bind_param($insert_stmt, "ssss", $name, $email, $hashed_password, $type);
+            mysqli_stmt_execute($insert_stmt);
+
+            header('Location: http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashUsers.php');
+            exit();
+        } else {
+            echo("User already exists <br>");
+            header('Refresh: 2; http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashUsers.php');
+            exit();
+        }
+    }
+    ?>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+
+    <h3>Add User</h3>
+            <form method="POST" action="">
+                <input type="hidden" name="UserId">
+                
+                <div class="form-group">
+                    <label for="Name">Name:</label>
+                    <input type="text" id="Name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <input type="text" id="Email" name="Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password:</label>
+                    <input type="text" id="Password" name="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="Type">Type:</label>
+                    <input type="text" id="Type" name="Type" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Submit</button>
+                    <button type="reset" class="cancel-button">Cancel</button>
+                    <button type="button" class="back-button" onclick="goBack()">Go Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include necessary JS -->
+        <!-- Include necessary JS -->
+        <script>
+        function closePopup() {
+            document.getElementById("popupOverlay").style.display = "none";
         }
 
-        mysqli_close($c);
+        function goBack() {
+            window.history.back();
+        }
 
-        header('Location: http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashUsers.php');
-        exit();
-    } else {
-        echo("Voiture existe déjà <br>");
-        header('Refresh: 2; http://127.0.0.1:8888/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashUsers.php');
-        exit();
-    }
-}
-?>
-<div class="popup-overlay" id="popupOverlay">
-    <div class="popup-content">
-        <span class="popup-close" onclick="closePopup()">&times;</span>
-        <h3>Ajouter User</h3>
-        <form id="userForm" method="POST" action="">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="Name" name="Name" required>
-            </div>
-            <div class="form-group">
-                <label for="Email">Email:</label>
-                <input type="text" id="Email" name="Email" required>
-            </div>
-            <div class="form-group">
-                <label for="Password">Password:</label>
-                <input type="text" id="Password" name="Password" required>
-            </div>
-            <div class="form-group">
-                <label for="Type">Type:</label>
-                <input type="text" id="Type" name="Type" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Submit</button>
-                <button type="reset">Annuler</button>
-            </div>
-        </form>
-    </div>
-</div>
+        // Show the popup when the page loads
+        document.getElementById("popupOverlay").style.display = "flex";
+    </script>
+</body>
+
+</html>

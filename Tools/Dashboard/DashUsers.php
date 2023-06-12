@@ -15,7 +15,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Contact</title>
+    <title>User</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -38,7 +38,6 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="popup/style.css">
 
 </head>
 
@@ -47,11 +46,6 @@
 
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
-        <!-- END MENU SIDEBAR-->
-        <?php 
-        include 'popup/popupUs/popupUs.php';
-        include 'popup/popupUs/popupmodUs.php';
-        ?>
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -68,8 +62,9 @@
                                 <h3 class="title-5 m-b-35">Table User</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
-                                            <i class="fa-solid fa-plus"></i>Add item
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="fa-solid fa-plus"></i>
+                                            <a href="popup/popupUs/popupUs.php">Add item</a>
                                         </button>
                                     </div>
                                 </div>
@@ -96,17 +91,18 @@
                                                 <td><?php echo $row['Type']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                            <?php $_SESSION['UserId'] = $row['UserId']; ?>
-                                                        </button>
+                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                <a href="popup/popupUs/editUser.php?UserId=<?php echo $row['UserId']; ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                    <i class="zmdi zmdi-edit"></i>
+                                                                </a>
+                                                    </button>
 
-                                                        <form method="POST" action="popup/del/delUs.php" style="display: inline;">
-                                                            <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
-                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="zmdi zmdi-delete"></i>
-                                                            </button>
-                                                        </form>
+                                                    <form method="POST" action="popup/del/delUs.php" onsubmit="return confirmDelete()" style="display: inline;">
+                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
+                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -124,6 +120,12 @@
         </div>
 
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this user?');
+        }
+    </script>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
@@ -148,7 +150,7 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script src="popup/script.js"></script>                                        
+    <script src="/Tools/Dashboard/popup/script.js"></script>
 
 </body>
 </html>

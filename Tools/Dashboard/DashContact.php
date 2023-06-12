@@ -101,12 +101,12 @@
                                                             <?php $_SESSION['IdContact'] = $row['IdContact']; ?>
                                                         </button>
 
-                                                        <form method="POST" action="popup/del/delCon.php" style="display: inline;">
-                                                            <input type="hidden" name="IdContact" value="<?php echo $row['IdContact']; ?>">
-                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="zmdi zmdi-delete"></i>
-                                                            </button>
-                                                        </form>
+                                                    <form method="POST" action="popup/del/delCon.php" onsubmit="return confirmDelete()" style="display: inline;">
+                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
+                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -124,6 +124,12 @@
         </div>
 
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this user?');
+        }
+    </script>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>

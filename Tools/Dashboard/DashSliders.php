@@ -46,7 +46,7 @@
     <div class="page-wrapper">
 
         <?php include 'popup/popupSL/popupSL.php'; ?>
-        <?php include 'popup/popupSL/popupmodSL.php'; ?>
+        <?php include 'popup/popupSL/editUser.php'; ?>
 
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
@@ -97,12 +97,12 @@
                                                             <?php $_SESSION['IdVslide'] = $row['IdVslide']; ?>
                                                         </button>
 
-                                                        <form method="POST" action="popup/del/delSL.php" style="display: inline;">
-                                                            <input type="hidden" name="IdVslide" value="<?php echo $row['IdVslide']; ?>">
-                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="zmdi zmdi-delete"></i>
-                                                            </button>
-                                                        </form>
+                                                    <form method="POST" action="popup/del/delSL.php" onsubmit="return confirmDelete()" style="display: inline;">
+                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
+                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                    </form>
 
                                                     </div>
                                                 </td>
@@ -121,6 +121,12 @@
         </div>
 
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this user?');
+        }
+    </script>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>

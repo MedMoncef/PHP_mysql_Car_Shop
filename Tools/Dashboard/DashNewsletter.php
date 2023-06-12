@@ -66,7 +66,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Table Slides</h3>
+                                <h3 class="title-5 m-b-35">Table Newsletter</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
@@ -96,12 +96,12 @@
                                                             <?php $_SESSION['NL_ID'] = $row['NL_ID']; ?>
                                                         </button>
 
-                                                        <form method="POST" action="popup/del/delNew.php" style="display: inline;">
-                                                            <input type="hidden" name="NL_ID" value="<?php echo $row['NL_ID']; ?>">
-                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                                <i class="zmdi zmdi-delete"></i>
-                                                            </button>
-                                                        </form>
+                                                    <form method="POST" action="popup/del/delNew.php" onsubmit="return confirmDelete()" style="display: inline;">
+                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
+                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                    </form>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -119,6 +119,12 @@
         </div>
 
     </div>
+
+    <script>
+        function confirmDelete() {
+            return confirm('Are you sure you want to delete this user?');
+        }
+    </script>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
