@@ -48,11 +48,6 @@
         <!-- MENU SIDEBAR-->
         <?php include 'Navbar.php'; ?>
         <!-- END MENU SIDEBAR-->
-        <?php 
-        include 'popup/popupCon/popupCon.php';
-        include 'popup/popupCon/popupmodCon.php'; 
-        ?>
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
             <?php include 'Navbar_top.php'; ?>
@@ -68,8 +63,9 @@
                                 <h3 class="title-5 m-b-35">Table Contact</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
-                                            <i class="fa-solid fa-plus"></i>Add item
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="fa-solid fa-plus"></i>
+                                            <a href="popup/popupCon/addContact.php">Add a new Contact Message</a>
                                         </button>
                                     </div>
                                 </div>
@@ -96,22 +92,24 @@
                                                 <td><?php echo $row['Message']; ?></td>
                                                 <td>
                                                     <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" onclick="openPopupMOD()">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                            <?php $_SESSION['IdContact'] = $row['IdContact']; ?>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <a href="popup/popupCon/editContact.php?IdContact=<?php echo $row['IdContact']; ?>" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                <i class="zmdi zmdi-edit"></i>
+                                                            </a>
                                                         </button>
 
-                                                    <form method="POST" action="popup/del/delCon.php" onsubmit="return confirmDelete()" style="display: inline;">
-                                                        <input type="hidden" name="UserId" value="<?php echo $row['UserId']; ?>">
-                                                        <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                    </form>
+                                                        <form method="POST" action="popup/del/delCon.php" onsubmit="return confirmDelete()" style="display: inline;">
+                                                            <input type="hidden" name="IdContact" value="<?php echo $row['IdContact']; ?>">
+                                                            <button type="submit" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                <i class="zmdi zmdi-delete"></i>
+                                                            </button>
+                                                        </form>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <tr class="spacer"></tr>
                                         <?php } ?>
+
                                         </tbody>
                                     </table>
                                 </div>

@@ -65,7 +65,7 @@
                                 <h3 class="title-5 m-b-35">Table Slides</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" onclick="openPopup()">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
                                         <i class="fa-solid fa-plus"></i>
                                             <a href="popup/popupSL/addSlide.php">Add a new Slide</a>
                                         </button>
