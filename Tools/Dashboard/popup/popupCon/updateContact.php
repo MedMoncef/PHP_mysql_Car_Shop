@@ -1,43 +1,28 @@
 <?php
-session_start();
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idvoiture = $_SESSION['IdContact'];
-    $Name = $_POST["Name"];
-    $Email = $_POST["Email"];
-    $Subject = $_POST["Subject"];
-    $Message = $_POST["Message"];
+include '../../Connect.php';
 
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_passe = "";
-    $base_donnee = "Garage";
+$IdContact = $_POST['IdContact'];
+$Name = $_POST['Name'];
+$Email = $_POST['Email'];
+$Subject = $_POST['Subject'];
+$Message = $_POST['Message'];
 
-    $c = mysqli_connect($serveur, $utilisateur, $mot_passe) or die("erreur de connexion au serveur");
-    mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
+$sql = "UPDATE contact SET Name = ?, Email = ?, Subject = ?, Message = ? WHERE IdContact = ?";
+$stmt = mysqli_prepare($c, $sql);
 
-    $requete = "SELECT * FROM contact WHERE IdContact='$idvoiture';";
-    $resultat = mysqli_query($c, $requete) or die("impossible d'executer la requete<br>");
-
-    $Num = mysqli_num_rows($resultat);
-    if ($Num == 0) {
-        echo("<br>Voiture inexistante");
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "ssssi", $Name, $Email, $Subject, $Message, $IdContact);
+    
+    if (mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_close($stmt);
+        mysqli_close($c);
+        header('Location: http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashContact.php'); // Redirect back to the table page
+        exit();
     } else {
-        $requete = "UPDATE contact SET Name='$Name', Email='$Email', Subject='$Subject', Message='$Message' WHERE IdContact='$idvoiture';";
-        $resultat = mysqli_query($c, $requete) or die("<br>erreur d'update<br>" . mysqli_error($c));
-
-        $requete = "SELECT * FROM contact;";
-        $resultat = mysqli_query($c, $requete);
-        $resultat2 = mysqli_query($c, $requete);
-
-        $coun = 1;
-        while ($i = mysqli_fetch_array($resultat)) {
-            $requete1 = "UPDATE contact SET IdContact='$coun' WHERE IdContact='$i[IdContact]';";
-            $resultat1 = mysqli_query($c, $requete1) or die("<br>erreur d'update<br>" . mysqli_error($c));
-            $coun++;
-        }
+        echo "Error executing query: " . mysqli_stmt_error($stmt);
     }
-
-    mysqli_close($c);
-    header('Location: http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashContact.php');
-    exit();
+    
+} else {
+    echo "Error preparing statement: " . mysqli_error($c);
 }
+?>

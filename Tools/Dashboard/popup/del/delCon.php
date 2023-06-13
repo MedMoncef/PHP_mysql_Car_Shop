@@ -1,37 +1,23 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idvoiture = $_POST['IdContact'];
+    $IdContact = $_POST['IdContact'];
 
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_passe = "";
-    $base_donnee = "Garage";
+    include '../../Connect.php';
 
-    $c = mysqli_connect($serveur, $utilisateur, $mot_passe) or die("erreur de connexion au serveur");
-    mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-
-    $requete = "SELECT * FROM contact WHERE IdContact='$idvoiture';";
+    $requete = "SELECT * FROM contact WHERE IdContact='$IdContact';";
 
     $resultat = mysqli_query($c, $requete) or die("impossible d'executer la requete<br>");
 
     $Num = mysqli_num_rows($resultat);
 
     if ($Num == 0) {
-        echo("IdContact inexistant");
+        echo("IdContact does not exist");
     } else {
-        $requete = "SELECT * FROM contact;";
-        $resultat = mysqli_query($c, $requete);
+        $delete_requete = "DELETE FROM contact WHERE IdContact='$IdContact';";
+        $resultat = mysqli_query($c, $delete_requete) or die("Error deleting record: " . mysqli_error($c));
 
-        $coun = 1;
-        while ($i = mysqli_fetch_array($resultat)) {
-            $requete1 = "UPDATE contact SET IdContact='$coun' WHERE IdContact='$i[IdContact]';";
-            $resultat1 = mysqli_query($c, $requete1) or die("<br>erreur d'update<br>" . mysqli_error($c));
-            $coun++;
-        }
-
-        $requete = "DELETE FROM contact WHERE IdContact='$idvoiture';";
-
-        $resultat = mysqli_query($c, $requete) or die("erreur<br>" . mysqli_error($c));
+        $update_requete = "UPDATE contact SET IdContact = IdContact - 1 WHERE IdContact > $IdContact;";
+        $resultat = mysqli_query($c, $update_requete) or die("Error updating records: " . mysqli_error($c));
     }
 
     mysqli_close($c);

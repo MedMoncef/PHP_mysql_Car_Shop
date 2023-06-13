@@ -1,42 +1,24 @@
 <?php
-session_start();
+include '../../Connect.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idvoiture = $_SESSION['NL_ID'];
-    $NomVM = $_POST["NomVM"];
+$NL_ID = $_POST['NL_ID'];
+$Email = $_POST['Email'];
 
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_passe = "";
-    $base_donnee = "Garage";
+$sql = "UPDATE newsletter SET Email = ? WHERE NL_ID = ?";
+$stmt = mysqli_prepare($c, $sql);
 
-    $c = mysqli_connect($serveur, $utilisateur, $mot_passe) or die("erreur de connexion au serveur");
-    mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, "si", $Email, $NL_ID);
 
-    $requete = "SELECT * FROM newsletter WHERE NL_ID='$idvoiture';";
-    $resultat = mysqli_query($c, $requete) or die("impossible d'executer la requete<br>");
-
-    $Num = mysqli_num_rows($resultat);
-    if ($Num == 0) {
-        echo("<br>Newsletter inexistante");
+    if (mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_close($stmt);
+        mysqli_close($c);
+        header('Location: http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashNewsletter.php');
+        exit();
     } else {
-        $requete = "UPDATE newsletter SET Email='$NomVM' WHERE NL_ID='$idvoiture';";
-        $resultat = mysqli_query($c, $requete) or die("<br>erreur d'update<br>" . mysqli_error($c));
-
-        $requete = "SELECT * FROM newsletter;";
-        $resultat = mysqli_query($c, $requete);
-        $resultat2 = mysqli_query($c, $requete);
-
-        $coun = 1;
-        while ($i = mysqli_fetch_array($resultat)) {
-            $requete1 = "UPDATE newsletter SET NL_ID='$coun' WHERE NL_ID='$i[NL_ID]';";
-            $resultat1 = mysqli_query($c, $requete1) or die("<br>erreur d'update<br>" . mysqli_error($c));
-            $coun++;
-        }
+        echo "Error executing query: " . mysqli_stmt_error($stmt);
     }
-
-    mysqli_close($c);
-    header('Location: http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Tools/Dashboard/DashNewsletter.php');
-    exit();
+} else {
+    echo "Error preparing statement: " . mysqli_error($c);
 }
 ?>
