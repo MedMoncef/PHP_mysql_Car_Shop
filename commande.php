@@ -42,7 +42,7 @@ $carInfo = mysqli_fetch_assoc($result);
 				<img id="image_border" src="image/border.png" alt="border">
 					<div class="contact-form">
 						<h1>Order a Car</h1>
-						<form method="POST" action="src/Ajout/AjoutContact.php">
+						<form method="POST" action="src/Ajout/AjoutCommande.php">
 							<div class="form-group group-coustume">
 								<br><br><br>
 								<input type="hidden" name="carId" value="<?php echo $carId; ?>">

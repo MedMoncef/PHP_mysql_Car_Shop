@@ -19,13 +19,7 @@ if (!in_array($imageType, $allowedTypes)) {
 }
 
 //db connection
-$serveur = "localhost";
-$utilisateur = "root";
-$mot_passe = "";
-$base_donnee = "Garage";
-
-$c = mysqli_connect($serveur, $utilisateur, $mot_passe) or die("Erreur de connexion au serveur");
-mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
+include '../../Tools/Dashboard/Connect.php';
 
 $requete = "SELECT * FROM user WHERE Email='$Email';";
 
