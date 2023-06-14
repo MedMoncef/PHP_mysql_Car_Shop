@@ -53,6 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['count'] = $count;
       $_SESSION['count_c'] = $count_c;
       $_SESSION['sum'] = $sum;
+  
+      // Set a cookie that expires in 15 minutes (900 seconds)
+      setcookie("user_session", session_id(), time() + 900);
 
       if ($_SESSION['Type'] == 'User') {
         header('Refresh: 0; http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Home.php');

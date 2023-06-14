@@ -16,6 +16,7 @@
 <body>
 <!-- Header -->
 <?php
+
 include 'Tools/Navbar.php';
 ?>
 <!--_______________________________________ Contact __________________________________ -->
@@ -39,7 +40,7 @@ include 'Tools/Navbar.php';
 					</div>
 			</div>
 			<div class="google-maps">
-			<div id="googleMap"></div>
+				<div id="googleMap"></div>
 
 			</div>
 		</div>

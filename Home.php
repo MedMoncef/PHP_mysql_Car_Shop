@@ -15,6 +15,7 @@
 <body>
 <!-- Header -->
 <?php
+
 include 'Tools/Navbar.php';
 ?>
 <!--_______________________________________ Carousel__________________________________ -->
@@ -53,49 +54,6 @@ include 'Tools/Navbar.php';
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-			</div>
-			<div class="collapse navbar-collapse" id="navbarmidle">
-				<div class="searchtxt">
-					<h1>SEARCH TEXT</h1>
-				</div>
-				<form class="navbar-form navbar-left searchformmargin" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control searchform" placeholder="Enter Keyword">
-					</div>
-				</form>
-				<ul class="nav navbar-nav navbarborder">
-					<li class="li-category">
-						<a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Category<span class="glyphicon glyphicon-chevron-down downicon"></span></a>
-						<ul class="dropdown-menu" id="mydd">
-							<li><a href="#">Epic</a></li>
-							<li><a href="#">Old</a></li>
-							<li><a href="#">New</a></li>
-						</ul>
-					</li>
-					<li class="li-minyear"><a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Min Year <span class="glyphicon glyphicon-chevron-down downicon"></span></a>
-						<ul class="dropdown-menu" id="mydd2">
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-						</ul>
-					</li>
-					<li class="li-maxyear"><a class="btn dropdown-toggle btn-costume"  id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Max Year <span class="glyphicon glyphicon-chevron-down downicon"></span></a>
-						<ul class="dropdown-menu" id="mydd3">
-							<li><a href="#">1900</a></li>
-							<li><a href="#">2000</a></li>
-							<li><a href="#">2016</a></li>
-						</ul>
-					</li>
-					<li class="li-slideprice">
-						<p> <label class="slidertxt" for="amount">Price </label>
-							<input class="priceslider" type="text" id="amount" readonly="readonly">
-						</p>
-							<div id="slider-range"></div>
-							
-					</li>
-					<li class="li-search"> <button class="searchbutton"><span class="glyphicon glyphicon-search "></span></button></li>
-				</ul>
- 
 			</div>
 		</nav>
 	</div>
@@ -196,10 +154,8 @@ include 'Tools/Navbar.php';
 								<h4 class="name"><?php echo $i["Voitures"] ?></h4>
 								<p><?php echo $i["Description"] ?></p>
 	 							<h4 class="price"><?php echo $i["Prix"] ?> $</h4>
-								 <form method="POST" action="contact.php">
-	 								<button type="submit">READ MORE</button><br>
-								 </form>
-								 <br>
+	 								<button type="submit"><a href="commande.php?IdV=<?php echo $i['IdV']; ?>" class="btn">PLACE AN ORDER</a>	</button><br>
+									<br><br>
 	 							<div class="wishtxt">
 		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
 		 							<p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
