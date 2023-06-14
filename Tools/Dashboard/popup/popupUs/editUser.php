@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-group">
                     <label for="Password">Password:</label>
-                    <input type="text" id="Password" name="Password" value="<?php echo $row['Password']; ?>" required>
+                    <input type="text" id="Password" name="Password" required>
                 </div>
                 <div class="form-group">
                     <label for="Type">Type:</label>

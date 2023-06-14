@@ -16,7 +16,13 @@
 <body>
 <!-- Header -->
 <?php
-include 'Tools/Dashboard/Connect.php';
+$serveur="localhost";
+$utilisateur="root";
+$mot_passe="";
+$base_donnee="Garage";
+
+$c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
+mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
 
 include 'Tools/Navbar.php';
 
@@ -42,7 +48,7 @@ $carInfo = mysqli_fetch_assoc($result);
 				<img id="image_border" src="image/border.png" alt="border">
 					<div class="contact-form">
 						<h1>Order a Car</h1>
-						<form method="POST" action="src/Ajout/AjoutCommande.php">
+						<form method="POST" action="src/Ajout/AjoutContact.php">
 							<div class="form-group group-coustume">
 								<br><br><br>
 								<input type="hidden" name="carId" value="<?php echo $carId; ?>">

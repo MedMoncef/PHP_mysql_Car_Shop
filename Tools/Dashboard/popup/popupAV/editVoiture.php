@@ -22,7 +22,7 @@
             ?>
 
             <form method="POST" action="updateVoiture.php">
-                <input type="hidden" name="IdV" value="<?php echo $idVoiture; ?>">	
+                <input type="hidden" name="IdV" value="<?php echo $idVoiture; ?>">
               
                 <div class="form-group">
                     <label for="NomVM">Nom de Voiture:</label>
