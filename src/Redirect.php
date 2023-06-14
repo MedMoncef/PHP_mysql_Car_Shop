@@ -54,8 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $_SESSION['count_c'] = $count_c;
       $_SESSION['sum'] = $sum;
   
-      // Set a cookie that expires in 15 minutes (900 seconds)
-      setcookie("user_session", session_id(), time() + 900);
+      // Regenerate the session id to avoid fixation attacks
+      session_regenerate_id(true);
+
+      // Now set a cookie that expires in 15 minutes (900 seconds)
+      setcookie("user_session", session_id(), time() + 60, "/"); // path is set to "/" to available for whole domain
 
       if ($_SESSION['Type'] == 'User') {
         header('Refresh: 0; http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/Home.php');

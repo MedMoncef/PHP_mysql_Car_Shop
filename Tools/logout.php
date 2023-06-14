@@ -9,7 +9,7 @@ session_unset();
 session_destroy();
 
 // Clear the cookie
-setcookie("user_session", "", time() - 3600);
+setcookie("user_session", "", time() - 3600, "/");
 
 header('Location: http://127.0.0.1/projects/Gestion%20TP/Gestion_Film/Voitures/index.php');
 exit;
