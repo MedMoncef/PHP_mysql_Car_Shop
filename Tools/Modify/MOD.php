@@ -32,13 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $serveur = "localhost";
-    $utilisateur = "root";
-    $mot_passe = "";
-    $base_donnee = "Garage";
-
-    $c = mysqli_connect($serveur, $utilisateur, $mot_passe) or die("erreur de connexion au serveur");
-    mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
+    include '../../Tools/Dashboard/Connect.php';
 
     $requete = "SELECT * FROM user WHERE UserId='$idvoiture';";
     $resultat = mysqli_query($c, $requete) or die("impossible d'executer la requete<br>");
